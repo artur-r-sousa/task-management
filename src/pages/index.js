@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, Container, Header, HeaderText, Img, ImgBox, Row, SearchInput, SideBar, UserName } from "./styles";
+import { Avatar, Column, Container, Header, HeaderText, Img, ImgBox, RightBar, Row, SearchInput, SectionGraphs, SectionSummary, SectionTasks, SideBar, UserName } from "./styles";
 
 export default function Home() {
   return (
@@ -21,6 +21,13 @@ export default function Home() {
         </Row>
 
       </Header>
+      <RightBar />
+      <Column>
+      
+      <SectionSummary />
+      <SectionTasks />
+      <SectionGraphs />
+      </Column>
     </Container>
   )
 }

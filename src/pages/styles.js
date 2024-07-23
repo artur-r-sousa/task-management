@@ -10,11 +10,12 @@ export const Container = styled.div`
 
 export const Header = styled.div`
   display: flex;  
-  width: 100%
+  width: 100%;
   height: 10vh; 
+  align-items: center;
   justify-content: space-between;
   flex-direction: row;
-  margin-top: 30px;
+  border: 1px solid #fff;
 `;
 
 export const HeaderText = styled.h1`
@@ -59,6 +60,16 @@ export const Row = styled.div`
   
 `;
 
+export const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 56.5%;
+  height: 100vh;
+  top: 100px;
+  left: 46vh;
+`;
+
 export const SearchInput = styled.input`
   display: flex;
   width: 40%;
@@ -79,8 +90,41 @@ export const UserName = styled.h4`
 
 export const SideBar = styled.div`
   display: flex;
-  width: 60%;
+  width: 30%;
   height: 100vh;
   border: 2px solid #fff;
-  margin-right: 10px;
+`;
+
+export const RightBar = styled.div`
+  display: flex;
+  position: absolute;
+  width: 20%;
+  height: 89.5vh;
+  border: 2px solid #fff;
+  bottom: 0px;
+  right: 0px;
+`;
+
+export const SectionSummary = styled.div`
+  display: flex;
+  width: 100%;
+  height: 20vh;
+  border: 2px solid #000;
+  margin-top: 15px;
+`;
+
+export const SectionTasks = styled.div`
+  display: flex;
+  width: 100%;
+  height: 35vh;
+  border: 2px solid #000;
+  margin-top: 15px;
+`;
+
+export const SectionGraphs = styled.div`
+  display: flex;
+  width: 100%;
+  height: 28vh;
+  border: 2px solid #000;
+  margin-top: 15px;
 `;
