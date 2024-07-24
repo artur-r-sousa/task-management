@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   height: 100vh; 
-  background-color: #32527b; 
+  background-color: #000042; 
   display: flex;
   justify-content: center;
 `;
@@ -21,7 +21,8 @@ export const Header = styled.div`
 export const HeaderText = styled.h1`
   font-size: 18px;
   margin-right: 100px;
-  width: 100%
+  width: 100%;
+  color: #fff;
 `;
 
 export const ImgBox = styled.div`
@@ -80,12 +81,14 @@ export const SearchInput = styled.input`
   background-color: #32527b; 
   margin-left: 100px;
   margin-right: 100px;
+  color: #fff;
 `;
 
 export const UserName = styled.h4`
   font-size: 14px;
   margin-left: 10px;
   margin-right: 10px;
+  color: #fff;
 `;
 
 export const SideBar = styled.div`
@@ -128,3 +131,4 @@ export const SectionGraphs = styled.div`
   border: 2px solid #000;
   margin-top: 15px;
 `;
+

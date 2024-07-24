@@ -1,5 +1,21 @@
 import React from "react";
-import { Avatar, Column, Container, Header, HeaderText, Img, ImgBox, RightBar, Row, SearchInput, SectionGraphs, SectionSummary, SectionTasks, SideBar, UserName } from "./styles";
+import { 
+  Avatar, 
+  Column,
+  Container,
+  Header,
+  HeaderText,
+  Img,
+  ImgBox,
+  RightBar,
+  Row,
+  SearchInput,
+  SectionGraphs,
+  SectionTasks,
+  SideBar,
+  UserName
+} from "./styles";
+import SectionSummary from "../components/SectionSummary";
 
 export default function Home() {
   return (
@@ -11,7 +27,7 @@ export default function Home() {
         <ImgBox header>
           <Img notification src={require('../assets/images/notification.png')} />
         </ImgBox>
-        
+
         <Row header>
           <Avatar src={require('../assets/images/avatar_1.jpeg')} />
           <UserName>Wade</UserName>
@@ -23,10 +39,9 @@ export default function Home() {
       </Header>
       <RightBar />
       <Column>
-      
-      <SectionSummary />
-      <SectionTasks />
-      <SectionGraphs />
+        <SectionSummary />
+        <SectionTasks />
+        <SectionGraphs />
       </Column>
     </Container>
   )
