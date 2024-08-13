@@ -11,11 +11,11 @@ import {
   Row,
   SearchInput,
   SectionGraphs,
-  SectionTasks,
   SideBar,
   UserName
 } from "./styles";
 import SectionSummary from "../components/SectionSummary";
+import SectionTasks from "../components/SectionTasks";
 
 export default function Home() {
   return (
@@ -24,9 +24,7 @@ export default function Home() {
       <Header>
         <HeaderText>Hi Wade Wilson!</HeaderText>
         <SearchInput />
-        <ImgBox header>
-          <Img notification src={require('../assets/images/notification.png')} />
-        </ImgBox>
+
 
         <Row header>
           <Avatar src={require('../assets/images/avatar_1.jpeg')} />

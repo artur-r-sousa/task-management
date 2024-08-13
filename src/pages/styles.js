@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   height: 100vh; 
-  background-color: #000042; 
+  background-color: #151922; 
   display: flex;
   justify-content: center;
 `;
@@ -15,7 +15,6 @@ export const Header = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
-  border: 1px solid #fff;
 `;
 
 export const HeaderText = styled.h1`
@@ -56,7 +55,8 @@ export const Row = styled.div`
   
     ${(props) => props.header && `
       padding-left: 199px;
-      margin-top: -1.5%;
+      margin-top: 1.5%;
+      justify-content: flex-end;
     `}
   
 `;
@@ -75,8 +75,8 @@ export const SearchInput = styled.input`
   display: flex;
   width: 40%;
   height: 5vh;
+  border: none;
   border-radius: 50px;
-  border: 1px solid #000;
   padding-left: 50px;
   background-color: #32527b; 
   margin-left: 100px;
@@ -95,7 +95,6 @@ export const SideBar = styled.div`
   display: flex;
   width: 30%;
   height: 100vh;
-  border: 2px solid #fff;
 `;
 
 export const RightBar = styled.div`
@@ -103,7 +102,6 @@ export const RightBar = styled.div`
   position: absolute;
   width: 20%;
   height: 89.5vh;
-  border: 2px solid #fff;
   bottom: 0px;
   right: 0px;
 `;
@@ -112,7 +110,6 @@ export const SectionSummary = styled.div`
   display: flex;
   width: 100%;
   height: 20vh;
-  border: 2px solid #000;
   margin-top: 15px;
 `;
 
@@ -120,7 +117,6 @@ export const SectionTasks = styled.div`
   display: flex;
   width: 100%;
   height: 35vh;
-  border: 2px solid #000;
   margin-top: 15px;
 `;
 
@@ -128,7 +124,6 @@ export const SectionGraphs = styled.div`
   display: flex;
   width: 100%;
   height: 28vh;
-  border: 2px solid #000;
   margin-top: 15px;
 `;
 
