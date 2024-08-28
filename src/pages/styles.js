@@ -1,37 +1,39 @@
 import styled from "styled-components";
+import p2v from '../utils/responsiveness';
 
-export const Container = styled.div`
-  width: 100%;
+export const Container = styled.section`
+  width: 100vw;
   height: 100vh; 
   background-color: #151922; 
   display: flex;
   justify-content: center;
+  flex-direction: column;
 `;
 
 export const Header = styled.div`
   display: flex;  
   width: 100%;
-  height: 10vh; 
+  height: ${p2v(80)}; 
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
 `;
 
 export const HeaderText = styled.h1`
-  font-size: 18px;
-  margin-right: 100px;
+  font-size: ${p2v(20)};
+  margin-right: ${p2v(20)}; 
   width: 100%;
   color: #fff;
 `;
 
 export const ImgBox = styled.div`
-
-
+  width: ${p2v(20)};
+  height: ${p2v(20)};
 `;
 
 export const Img = styled.img`
-  width: 5%;
-  height: 5%; 
+  width: 100%;
+  height: 100%; 
 
   ${(props) => props.notification && `
     width: 40%;
@@ -39,24 +41,24 @@ export const Img = styled.img`
 `;
 
 export const Avatar = styled.img`
-  width: 40%;
+  width: ${p2v(40)}; 
   height: auto; 
-  border-radius: 120px;
+  border-radius: ${p2v(20)}; 
   
 `;
 
 export const Row = styled.div`
   width: 100%;
-  height: 10vh; 
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
   
     ${(props) => props.header && `
-      padding-left: 199px;
-      margin-top: 1.5%;
+      margin-top: ${p2v(-15)}; 
       justify-content: flex-end;
+      margin-right: ${p2v(15)}; 
     `}
   
 `;
@@ -64,11 +66,8 @@ export const Row = styled.div`
 export const Column = styled.div`
   display: flex;
   flex-direction: column;
-  position: absolute;
-  width: 56.5%;
+  width: 100%;
   height: 100vh;
-  top: 100px;
-  left: 46vh;
 `;
 
 export const SearchInput = styled.input`
@@ -91,9 +90,11 @@ export const UserName = styled.h4`
   color: #fff;
 `;
 
-export const SideBar = styled.div`
+export const SideBar = styled.aside`
   display: flex;
-  width: 30%;
+  flex-direction: column;
+  background-color: #ffee8c;
+  width: ${p2v(160)}; 
   height: 100vh;
 `;
 
@@ -120,10 +121,4 @@ export const SectionTasks = styled.div`
   margin-top: 15px;
 `;
 
-export const SectionGraphs = styled.div`
-  display: flex;
-  width: 100%;
-  height: 28vh;
-  margin-top: 15px;
-`;
 

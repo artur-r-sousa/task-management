@@ -1,31 +1,26 @@
 import styled from "styled-components";
+import p2v from "../../utils/responsiveness";
 
-export const Container = styled.div`
+export const Container = styled.section`
   display: flex;
   width: 100%;
-  height: 35vh;
-  margin-top: 15px;
+  height: ${p2v(300)};
+  margin-top: ${p2v(15)};
 `;
 
-export const Col = styled.section`
+export const Col = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   
 `;
 
-export const Row = styled.section`
+export const Row = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
 
-`;
-
-export const ImgBox = styled.div`
-  margin: 15px;
-  width: 10%;
-  height: 100%;
 `;
 
 export const Img = styled.img`
@@ -34,10 +29,10 @@ export const Img = styled.img`
 `;
 
 export const SubText = styled.h4`
-  font-size: 12px;
+  font-size: ${p2v(10)};
   color: #fff;
   ${(props) => props.title && `
-    font-size: 18px;  
+    font-size: ${p2v(15)};
   `}
 `;
 
@@ -48,9 +43,9 @@ export const BoxContainer = styled.div`
   background-color: #24252b;
 
   ${(props) => props.addTask && `
-    margin-left: 30px;
-    width: 172%;
-    padding: 30px;
+    margin-left: ${p2v(15)};
+    width: 100%;
+    padding: ${p2v(15)};
     height: 100%;
   `}
 `;
@@ -62,9 +57,9 @@ export const Rounded = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 8px;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin: ${p2v(15)};
+  padding-left: ${p2v(15)};
+  padding-right: ${p2v(15)};
 `;
 
 export const Circular = styled.div`
@@ -80,10 +75,10 @@ export const Circular = styled.div`
 export const UserInput = styled.input`
   display: flex;
   width: 40%;
-  height: 5vh;
-  border-radius: 5px;
+  height: ${p2v(35)};
+  border-radius: ${p2v(5)};
   border: none;
-  padding-left: 50px;
+  padding-left: ${p2v(15)};
   background-color: #32527b; 
   color: #fff;
 `;
@@ -91,7 +86,7 @@ export const UserInput = styled.input`
 export const SaveButton = styled.button`
   display: flex;
   width: 40%;
-  height: 5vh;
+  height: ${p2v(35)};
   border-radius: 5px;
   background-color: #0c0a00; 
   border: none;
