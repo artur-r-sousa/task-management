@@ -12,7 +12,6 @@ export default function SectionTasks() {
 
   useEffect(() => {
     dispatch(GET_TASKS_REQUEST())
-    console.log('taskState', tasks)
   }, [])
 
   
@@ -22,7 +21,7 @@ export default function SectionTasks() {
         <Col>
           <Row>
             <Rounded>
-              <SubText>To do</SubText>
+              <SubText isToDo>To do</SubText>
               <Circular>{tasks.data.in_progress ? tasks.data.in_progress.length : 0}</Circular>
             </Rounded>
           </Row>

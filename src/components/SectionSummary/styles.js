@@ -6,11 +6,12 @@ export const Container = styled.section`
   width: 100%;
   height: ${p2v(180)};
   flex-direction: column;
+  z-index: 90;
 `;
 
 export const Title = styled.h3`
   font-size: ${p2v(16)};
-  color: #fff;
+  color: #000;
 `;
 
 export const Row = styled.div`

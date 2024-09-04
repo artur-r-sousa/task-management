@@ -6,6 +6,7 @@ export const Container = styled.section`
   width: 100%;
   height: ${p2v(300)};
   margin-top: ${p2v(15)};
+  z-index: 90;
 `;
 
 export const Col = styled.div`
@@ -30,9 +31,12 @@ export const Img = styled.img`
 
 export const SubText = styled.h4`
   font-size: ${p2v(10)};
-  color: #fff;
+  color: #000;
   ${(props) => props.title && `
     font-size: ${p2v(15)};
+  `}
+  ${(props) => props.isToDo && `
+    color: #fff;
   `}
 `;
 
@@ -40,7 +44,7 @@ export const BoxContainer = styled.div`
   border-radius: 15px;
   width: 100%;
   height: 100%;
-  background-color: #24252b;
+  background-color: #fff;
 
   ${(props) => props.addTask && `
     margin-left: ${p2v(15)};
@@ -79,8 +83,8 @@ export const UserInput = styled.input`
   border-radius: ${p2v(5)};
   border: none;
   padding-left: ${p2v(15)};
-  background-color: #32527b; 
-  color: #fff;
+  background-color: #f2f2f2; 
+  color: #000;
 `;
 
 export const SaveButton = styled.button`
@@ -88,7 +92,7 @@ export const SaveButton = styled.button`
   width: 40%;
   height: ${p2v(35)};
   border-radius: 5px;
-  background-color: #0c0a00; 
+  background-color: #f2f2f2; 
   border: none;
   justify-content: center;
   align-items: center;

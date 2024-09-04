@@ -6,7 +6,8 @@ export const Box = styled.div`
   height: ${p2v(120)};
   border-radius: ${p2v(15)};
   margin-right: ${p2v(15)};
-  background-color: #24252b;
+  background-color: #fff;
+  z-index: 90;
 `;
 
 export const Col = styled.section`
@@ -37,7 +38,7 @@ export const Img = styled.img`
 
 export const SubText = styled.h4`
   font-size: ${p2v(11)};
-  color: #fff;
+  color: #000;
 `;
 
 export const TextContainer = styled.div`

@@ -3,6 +3,7 @@ import {
   Avatar,
   Column,
   Container,
+  Footer,
   Header,
   HeaderText,
   Img,
@@ -10,21 +11,24 @@ import {
   RightBar,
   Row,
   SearchInput,
-  SideBar,
   UserName
 } from "./styles";
 import SectionSummary from "../components/SectionSummary";
 import SectionTasks from "../components/SectionTasks";
+import { useSelector } from "react-redux";
+import SideBar from "../components/SideBar";
+
 
 export default function Home() {
+  const isColumnOpen = useSelector((state) => state.tasks.isMainColumnOpen);
   return (
     <Container>
       <Row>
-        <SideBar>teste</SideBar>
-        <Column>
+        <SideBar/>
+        <Column isColumnOpen={isColumnOpen}>
           <Header>
             <HeaderText>Hi Wade Wilson!</HeaderText>
-            <SearchInput />
+            {/* <SearchInput /> */}
 
 
             <Row header>
@@ -39,6 +43,10 @@ export default function Home() {
           <RightBar />
           <SectionSummary />
           <SectionTasks />
+          <SectionSummary />
+          <SectionTasks />
+
+          <Footer />
         </Column>
       </Row>
 
