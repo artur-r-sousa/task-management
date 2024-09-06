@@ -1,16 +1,13 @@
 import { produce } from "immer";
 
-
 const TaskState = {
   value: true,
   isAddingNewTask: false,
   isMainColumnOpen: true,
-  currSelectedTab: 1,
+  currSelectedTab: null,
   data: {}
 }
 
-// An example slice reducer function that shows how a Redux reducer works inside.
-// We'll replace this soon with real app logic.
 export default function TaskReducer(taskState = TaskState, action) {
   return produce(taskState, (draft) => {
     switch (action.type) {

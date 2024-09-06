@@ -10,7 +10,6 @@ import {
   ImgBox,
   RightBar,
   Row,
-  SearchInput,
   UserName
 } from "./styles";
 import SectionSummary from "../components/SectionSummary";
