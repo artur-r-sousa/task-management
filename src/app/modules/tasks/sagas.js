@@ -6,7 +6,7 @@ function* getTasks() {
   try {
     
     const tasks = yield call(globalAPI.get)
-
+    console.log(tasks)
     yield put(GET_TASKS_SUCCESS(tasks.data))
   } catch (err) {
     console.log(err)
@@ -22,9 +22,9 @@ function* addTask() {
   }
 }
 
-function* mySaga() {
+function* tasksSaga() {
   yield takeLatest('@tasks/GET_TASKS_REQUEST', getTasks)
   yield takeLatest('@tasks/ADD_TASKS_REQUEST', addTask)
 }
 
-export default mySaga
+export default tasksSaga;

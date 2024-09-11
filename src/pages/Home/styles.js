@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import p2v from '../utils/responsiveness';
+import p2v from '../../utils/responsiveness';
 
 export const Container = styled.section`
   width: 100vw;

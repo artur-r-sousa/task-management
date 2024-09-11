@@ -1,4 +1,5 @@
 export function GET_TASKS_REQUEST() {
+  console.log('teste')
   return {
     type: '@tasks/GET_TASKS_REQUEST',
   }

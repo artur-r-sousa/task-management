@@ -1,18 +1,37 @@
-import { configureStore } from '@reduxjs/toolkit'
-import createSagaMiddleware from 'redux-saga'
+import { configureStore } from '@reduxjs/toolkit';
+import createSagaMiddleware from 'redux-saga';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import rootReducer from './modules/rootReducer'
 
-import TaskReducer from './modules/tasks/reducer'
-import mySaga from './modules/tasks/sagas'
+import rootSaga from './modules/rootSagas';
 
-// create the saga middleware
-const sagaMiddleware = createSagaMiddleware()
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: [
+    'login',
+    'tasks'
+  ] // aqui você coloca os reducers que deseja persistir
+};
 
-export default configureStore({
-  reducer: {
-    tasks: TaskReducer
-  },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+const sagaMiddleware = createSagaMiddleware();
+
+const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ 
+      thunk: false,
+      serializableCheck: false      
+     }).concat([sagaMiddleware]),
+   
+  
 })
 
 // then run the saga
-sagaMiddleware.run(mySaga)
+sagaMiddleware.run(rootSaga);
+
+const persistor = persistStore(store);
+
+export { store, persistor };

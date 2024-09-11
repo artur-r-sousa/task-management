@@ -7,12 +7,13 @@ export default function SectionTasks() {
 
   const dispatch = useDispatch()
   
-  
-  const tasks = useSelector((state) => state.tasks)
-
   useEffect(() => {
     dispatch(GET_TASKS_REQUEST())
   }, [])
+
+  
+  const tasks = useSelector((state) => state.tasks)
+
 
   
   return (

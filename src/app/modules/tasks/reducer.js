@@ -5,7 +5,16 @@ const TaskState = {
   isAddingNewTask: false,
   isMainColumnOpen: true,
   currSelectedTab: null,
-  data: {}
+  data: {
+    new: [],
+    completed: [],
+    in_progress: [],
+    user_data: {
+      id: null,
+      user_first_name: "",
+      user_last_name: ""
+    }
+  },
 }
 
 export default function TaskReducer(taskState = TaskState, action) {
@@ -16,6 +25,7 @@ export default function TaskReducer(taskState = TaskState, action) {
       }
       case '@tasks/GET_TASKS_SUCCESS': {
         draft.value = false;
+        console.log(action.payload)
         draft.data = action.payload;
         break;
       }
@@ -26,6 +36,7 @@ export default function TaskReducer(taskState = TaskState, action) {
       case '@tasks/ADD_TASKS_SUCCESS': {
         draft.isAddingNewTask = false;
         draft.data = action.payload;
+        break;
       }
       case '@tasks/ADD_TASKS_FAILURE': {
         draft.isAddingNewTask = false;
