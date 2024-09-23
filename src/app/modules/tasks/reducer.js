@@ -4,7 +4,7 @@ const TaskState = {
   value: true,
   isAddingNewTask: false,
   isMainColumnOpen: true,
-  currSelectedTab: null,
+  currSelectedTab: 1,
   data: {
     new: [],
     completed: [],
@@ -25,7 +25,6 @@ export default function TaskReducer(taskState = TaskState, action) {
       }
       case '@tasks/GET_TASKS_SUCCESS': {
         draft.value = false;
-        console.log(action.payload)
         draft.data = action.payload;
         break;
       }

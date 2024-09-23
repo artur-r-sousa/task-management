@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import { Container, SideBarItemContainer, SidebarTitle, SidebarIcon, SidebarIconBox } from "./styles";
 import { useDispatch, useSelector } from "react-redux";
-import { CHANGE_MAIN_COLUMN_STATE } from "../../app/modules/tasks/actions";
+import { CHANGE_CURR_TAB_TO, CHANGE_MAIN_COLUMN_STATE } from "../../app/modules/tasks/actions";
 
 export default function SideBar() {
 
   const isColumnOpen = useSelector((state) => state.tasks.isMainColumnOpen);
   const currTabSelectedId = useSelector((state) => state.tasks.currSelectedTab);
   const dispatch = useDispatch();
+  
 
   const SideBarItem = (props) => {
+    console.log(currTabSelectedId)
     return (
+       
       <SideBarItemContainer isColumnOpen={isColumnOpen} key={props.id} isSelectedTab={currTabSelectedId === props.id}>
         {!isColumnOpen && (
           <SidebarIconBox>

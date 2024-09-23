@@ -5,6 +5,7 @@ import { USER_LOGIN_SUCCESS } from './actions';
 
 function* loginCreateNewRequest({payload}) {
   try {
+    console.log(payload)
     yield call(globalAPI.post, '/login_create_new_request', payload)
     
 

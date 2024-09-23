@@ -21,27 +21,27 @@ export const SideBarItemContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: ${p2v(120)};
-  height: 50px;
-  margin-top: 15px;
+  height: ${p2v(40)};
+  margin-top: ${p2v(12)};
   background-color: ${yellow1};
   
-  border-radius: 0px 15px 15px 0px;
+  border-radius: 0px ${p2v(5)} ${p2v(15)} 0px;
   align-items: center;
   justify-content: flex-start;
   color: #000;
   padding: ${p2v(5)};
-  font-size: 17px;
+  font-size: ${p2v(14)};
 
   ${(props) => props.isColumnOpen && `
     border-radius: ${p2v(50)};  
     width: 120%;
-    margin-left: 10px;
+    margin-left: ${p2v(9)};
     justify-content: center;
     
-    border-radius: 45px 45px 45px 45px;
+    border-radius: ${p2v(45)};
     padding: 0px;
-    font-size: 20px;
-    height: 80px;
+    font-size: ${p2v(16)};
+    height: ${p2v(60)};
   `}
 
   ${(props) => props.isSelectedTab  && `
@@ -63,7 +63,7 @@ export const SidebarIconBox = styled.div`
   height: ${p2v(18)};
   justify-content: flex-start;
   align-items: center;
-  margin-right: 10px;
+  margin-right: ${p2v(18)};
 `;
 export const SidebarIcon = styled.img`
   width: ${p2v(18)};

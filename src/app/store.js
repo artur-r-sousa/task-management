@@ -12,7 +12,7 @@ const persistConfig = {
   whitelist: [
     'login',
     'tasks'
-  ] // aqui você coloca os reducers que deseja persistir
+  ] 
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

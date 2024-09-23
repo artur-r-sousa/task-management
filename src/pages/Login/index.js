@@ -1,70 +1,89 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { Container, LoginContainer } from "./styles";
+import FormComponent from "../../components/FormComponent";
+import { useDispatch } from "react-redux";
 import { USER_CREATE_LOGIN_REQUEST, USER_LOGIN_REQUEST } from "../../app/modules/login/actions";
 
-function Login() {
+export default function Login() {
+
+  const [isNewLogin, setIsNewLogin] = useState(false)
 
   const dispatch = useDispatch();
-  const [isLogin, setIsLogin] = useState(true)
-  const [formData, setFormData] = useState({
-    user_email: "",
-    user_password: ""
-  });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value
-    }));
+  const fields = [    
+    { 
+      label: 'E-mail', 
+      type: 'email', 
+      name: 'user_email',
+      placeholder: 'Enter your e-mail', 
+      required: true 
+    },
+    { 
+      label: 'Password', 
+      type: 'password', 
+      name: 'user_password',
+      placeholder: '', 
+      required: true 
+    }
+  ]
+  const optionalFields = {
+    fields: [
+      { 
+        label: 'First Name',
+        type: 'text', 
+        name: 'user_first_name', 
+        placeholder: 'Enter your name', 
+        required: true 
+      },
+      { 
+        label: 'Last Name',
+        type: 'text', 
+        name: 'user_last_name', 
+        placeholder: 'Enter your name', 
+        required: true 
+      }
+
+    ],
+    conditional: isNewLogin,
+    setConditional: setIsNewLogin,
+    conditionalLabelOptions: ['Login', 'Create New']
+  }
+
+  const onSubmit = (formData) => {
+    const { user_email, user_password, user_first_name, user_last_name } = formData;
+
+    if (!user_email || !user_password) {
+      alert("Email and password are required.");
+      return;
+    }
+
+    if (isNewLogin && (!user_first_name || !user_last_name)) {
+      alert("First name and last name are required for new user registration.");
+      return;
+    }
+
+    const payload = {
+      user_email: user_email,
+      user_password: user_password,
+      ...(isNewLogin && { firstName: user_first_name, lastName: user_last_name })
+    };
+
+    isNewLogin ? 
+      dispatch(USER_CREATE_LOGIN_REQUEST(payload)) : 
+      dispatch(USER_LOGIN_REQUEST(payload));
   };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    console.log(formData)
-    dispatch(
-      isLogin ? USER_LOGIN_REQUEST(formData):
-      USER_CREATE_LOGIN_REQUEST(formData)
-    )
-  };
-
-  const teste = useSelector((state) => state)
-  console.log(teste)
 
   return (
-    <div>
+    <Container>
       <h1>Login Page</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="user_email">Email:</label>
-          <input
-            type="email"
-            id="user_email"
-            name="user_email"
-            value={formData.user_email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div>
-          <label htmlFor="user_password">Password:</label>
-          <input
-            type="password"
-            id="user_password"
-            name="user_password"
-            value={formData.user_password}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <button onClick={() => setIsLogin(!isLogin)}> {isLogin ? 'Login' : 'Create new'}</button>
-        <button type="submit">Submit</button>
+      <LoginContainer>
+        <FormComponent 
+          fields={fields} 
+          onSubmit={onSubmit} 
+          optionalFields={optionalFields}
         
-      </form>
-    </div>
+        />
+      </LoginContainer>
+    </Container>
   );
 }
-
-export default Login;
